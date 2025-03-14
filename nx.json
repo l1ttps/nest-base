@@ -36,7 +36,34 @@
         "targetName": "test"
       },
       "exclude": ["apps/api-e2e/**/*"]
+    },
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static"
+      }
     }
   ],
-  "nxCloudAccessToken": "ZGI1OGIwYmEtNmM4MC00NzE4LTljMTctNzdhNmQxZjU2OTYxfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "ZGI1OGIwYmEtNmM4MC00NzE4LTljMTctNzdhNmQxZjU2OTYxfHJlYWQtd3JpdGU=",
+  "generators": {
+    "@nx/react": {
+      "application": {
+        "babel": true,
+        "style": "tailwind",
+        "linter": "eslint",
+        "bundler": "vite"
+      },
+      "component": {
+        "style": "tailwind"
+      },
+      "library": {
+        "style": "tailwind",
+        "linter": "eslint"
+      }
+    }
+  }
 }
