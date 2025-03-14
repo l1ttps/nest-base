@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nx run-many --target=serve --all",
-    "build": "nx run-many --target=build --all"
+    "build": "nx run-many --target=build --all && cd apps/admin-ui && npx vite build"
   },
   "private": true,
   "dependencies": {
