@@ -1,0 +1,23 @@
+version: '3'
+
+tasks:
+  dev:
+    desc: Start both apps in development mode
+    cmds:
+      - echo "Starting API..."
+      - echo "Starting Admin UI..."
+      - bun run dev
+  build:
+    desc: Build both apps (api and admin-ui)
+    cmds:
+      - echo "Building API..."
+      - nx build api --prod
+      - cd apps/admin-ui && npx vite build
+    silent: false
+
+  prod:
+    desc: Run both apps in production mode
+    cmds:
+      - echo "Starting API..."
+      - bun run dist/apps/api/main.js
+      - echo "Starting Admin UI..."
