@@ -1,5 +1,4 @@
 import { AuthGuard } from './../../guards/auth.guard';
-import { EnvType } from './../../common/common.enum';
 import { InfrastructureModule } from '../../infra/infrastructure';
 import { Module } from '@nestjs/common';
 
@@ -9,12 +8,12 @@ import { JwtModule } from '@nestjs/jwt';
 import authConfig from 'apps/api/common/configs/auth.config';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
+import { envFilePath } from 'apps/api/common/configs/defaultConfig';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath:
-        process.env.NODE_ENV === EnvType.DEVELOPMENT ? '.env.dev' : '.env',
+      envFilePath,
       isGlobal: true,
     }),
     JwtModule.register({

@@ -1,12 +1,21 @@
 version: '3'
 
 tasks:
+  init:
+    desc: Initialize the workspace
+    cmds:
+      - npm install
+      - cp .env.example .env
+      - cp .env.example .env.development
+      - cp .env.example .env.production
   dev:
     desc: Start both apps in development mode
     cmds:
       - echo "Starting API..."
       - echo "Starting Admin UI..."
-      - bun run dev
+      - npm run dev
+    env:
+      NODE_ENV: 'development'
   build:
     desc: Build both apps (api and admin-ui)
     cmds:
@@ -19,5 +28,5 @@ tasks:
     desc: Run both apps in production mode
     cmds:
       - echo "Starting API..."
-      - bun run dist/apps/api/main.js
+      - npm run dist/apps/api/main.js
       - echo "Starting Admin UI..."
