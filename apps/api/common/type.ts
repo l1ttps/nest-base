@@ -28,3 +28,10 @@ export interface RedisConfigs {
   password?: string | null;
   db?: number;
 }
+
+export interface UserPayload extends TokenPayload {
+  metadata: {
+    userAgent: string;
+    ipAddress: string;
+  };
+}
