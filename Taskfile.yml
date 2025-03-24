@@ -14,7 +14,7 @@ tasks:
     vars:
       NAME: '{{.name}}'
     cmds:
-      - cd apps/api && nest g res modules/{{.name}}
+      - cd apps/api && nest g res modules/{{.name}} --no-spec
       - cd ../../
       - nx reset
 

@@ -1,15 +1,6 @@
 import { JwtPayload } from 'jsonwebtoken';
-import { CrudOptions } from '@dataui/crud';
+
 import { UserRole } from './common.enum';
-
-type UnwantedKeys = 'model';
-export type CrudOptionsType = Omit<CrudOptions, UnwantedKeys>;
-
-export type ControllerCrudOptions = {
-  name: string;
-  entity: any;
-  crud?: CrudOptionsType;
-};
 
 export interface TokenPayload extends JwtPayload {
   email: string;

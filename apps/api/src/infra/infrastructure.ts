@@ -5,6 +5,7 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { redisStore } from 'cache-manager-redis-yet';
 import { DEFAULT_CACHE_TTL } from '../common/configs/defaultConfig';
 import getRedisConfigs from '../helper/getRedisConfigs';
+import { User } from '../modules/users/entities/user.entity';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
@@ -17,7 +18,7 @@ import getRedisConfigs from '../helper/getRedisConfigs';
         username: configService.get('DB_USERNAME'),
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_NAME'),
-        entities: [__dirname + '/**/*.entity.{js,ts}'],
+        entities: [User],
         synchronize: true,
         ssl: Boolean(configService.get('DB_SSL') === 'true'),
       }),
