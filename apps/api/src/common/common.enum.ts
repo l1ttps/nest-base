@@ -8,6 +8,9 @@ export enum UserRole {
   USER = 'USER',
 }
 
+export const ADMIN = UserRole.ADMIN;
+export const USER = UserRole.USER;
+
 export enum AuthType {
   BASIC = 'BASIC',
   FACEBOOK = 'FACEBOOK',

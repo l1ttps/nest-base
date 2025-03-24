@@ -15,8 +15,8 @@ import { Cache } from 'cache-manager';
 import { Request } from 'express';
 import { Observable } from 'rxjs';
 import { UserRole } from '../common/common.enum';
-import { TokenPayload } from '../common/type';
 import authConfig from '../common/configs/auth.config';
+import { TokenPayload } from '../common/type';
 import keyLogout from '../helper/keyLogout';
 
 const PUBLIC_METADATA_KEY = 'PUBLIC';

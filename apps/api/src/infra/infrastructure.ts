@@ -3,8 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CacheModule } from '@nestjs/cache-manager';
 import { redisStore } from 'cache-manager-redis-yet';
-import getRedisConfigs from '../helper/getRedisConfigs';
 import { DEFAULT_CACHE_TTL } from '../common/configs/defaultConfig';
+import getRedisConfigs from '../helper/getRedisConfigs';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
