@@ -12,7 +12,7 @@ export abstract class CrudService<T> {
 
   /**
    * Retrieve all entities from the database.
-   */
+   
   getManyBase() {
     return this.repo.find();
   }
