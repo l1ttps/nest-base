@@ -8,6 +8,16 @@ tasks:
       - cp .env.example .env
       - cp .env.example .env.development
       - cp .env.example .env.production
+
+  gen:
+    desc: Generate a new module with a custom name
+    vars:
+      NAME: '{{.name}}'
+    cmds:
+      - cd apps/api && nest g res modules/{{.name}}
+      - cd ../../
+      - nx reset
+
   dev:
     desc: Start both apps in development mode
     cmds:
