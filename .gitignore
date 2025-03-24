@@ -41,6 +41,8 @@ Thumbs.db
 .nx/cache
 .nx/workspace-data
 
+# Env Files
 .env.dev
 .env.production
 .env.development
+.env

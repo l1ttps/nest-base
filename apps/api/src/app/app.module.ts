@@ -9,6 +9,7 @@ import authConfig from 'apps/api/common/configs/auth.config';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { envFilePath } from 'apps/api/common/configs/defaultConfig';
+import { CombineModule } from '../modules/combine.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { envFilePath } from 'apps/api/common/configs/defaultConfig';
       signOptions: { expiresIn: '24h' },
     }),
     InfrastructureModule,
+    CombineModule,
   ],
   controllers: [AppController],
   providers: [
