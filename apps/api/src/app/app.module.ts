@@ -10,6 +10,7 @@ import { CombineModule } from '../modules/combine.module';
 import authConfig from '../common/configs/auth.config';
 import { envFilePath } from '../common/configs/defaultConfig';
 import { InfrastructureModule } from '../infra/infrastructure';
+import { ServicesModule } from '../services/services.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { InfrastructureModule } from '../infra/infrastructure';
     }),
     InfrastructureModule,
     CombineModule,
+    ServicesModule,
   ],
   controllers: [AppController],
   providers: [

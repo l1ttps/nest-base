@@ -6,9 +6,9 @@ import { CrudOptions } from '@dataui/crud';
 export interface TokenPayload extends JwtPayload {
   email: string;
   id: string;
-  jti: string;
+  jti?: string;
   name?: string;
-  role: UserRole;
+  role?: UserRole;
   remember?: boolean;
   sessionExp?: number;
 }
@@ -36,3 +36,12 @@ export interface IControllerCrudOptions {
   entity: any;
   crud?: CrudOptionsType;
 }
+
+export type SendMail = {
+  to: string | string[];
+  subject: string;
+  markdown?: string;
+  isOtp?: boolean;
+  description?: string;
+  summary?: string;
+};
