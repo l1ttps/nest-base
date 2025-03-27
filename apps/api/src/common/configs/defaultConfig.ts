@@ -19,4 +19,7 @@ export {
   TOKEN_TTL,
 };
 
-export const envFilePath = `.env.${process.env.NODE_ENV}`;
+export const envFilePath = process.env.NODE_ENV
+  ? `.env.${process.env.NODE_ENV}`
+  : '.env';
+console.log(envFilePath);

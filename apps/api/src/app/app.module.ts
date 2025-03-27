@@ -1,8 +1,6 @@
-import { AuthGuard } from '../guards/auth.guard';
 import { Module } from '@nestjs/common';
 
 import { ConfigModule } from '@nestjs/config';
-import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
@@ -11,7 +9,6 @@ import authConfig from '../common/configs/auth.config';
 import { envFilePath } from '../common/configs/defaultConfig';
 import { InfrastructureModule } from '../infra/infrastructure';
 import { ServicesModule } from '../services/services.module';
-
 @Module({
   imports: [
     ConfigModule.forRoot({

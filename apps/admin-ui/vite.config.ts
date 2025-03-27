@@ -25,7 +25,7 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: '../../dist/apps/admin-ui',
+    outDir: '../../dist/public',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
