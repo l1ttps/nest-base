@@ -16,7 +16,7 @@ async function bootstrap() {
 
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
-  app.useStaticAssets(join(__dirname, '..', 'public'), {
+  app.useStaticAssets(join(__dirname, '..', 'dist/public'), {
     setHeaders(res) {
       res.setHeader('Cache-Control', 'max-age=1209600, no-transform');
     },
