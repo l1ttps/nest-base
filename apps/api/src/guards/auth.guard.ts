@@ -58,6 +58,7 @@ export class AuthGuard implements CanActivate {
       });
 
       const { role } = payload;
+
       if (
         acceptedRoles &&
         !acceptedRoles.some((r) => r === role) &&

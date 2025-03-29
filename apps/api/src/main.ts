@@ -9,11 +9,6 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  const config = new DocumentBuilder()
-    .setTitle(APPLICATION_NAME)
-    .setVersion('1.0')
-    .build();
-
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   app.useStaticAssets(join(__dirname, '..', 'dist/public'), {
@@ -22,6 +17,17 @@ async function bootstrap() {
     },
   });
 
+  const config = new DocumentBuilder()
+    .setTitle(APPLICATION_NAME)
+    .setVersion('1.0')
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      'x-tokenName': 'Authorization',
+      name: 'Authorization',
+    })
+    .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api/docs', app, document, {
     swaggerOptions: { persistAuthorization: true },

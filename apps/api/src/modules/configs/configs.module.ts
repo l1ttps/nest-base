@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { SystemConfigsService } from './configs.service';
 import { ConfigsController } from './configs.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigEntity } from './entities/config.entity';
+import { Config } from './entities/config.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ConfigEntity])],
+  imports: [TypeOrmModule.forFeature([Config])],
   controllers: [ConfigsController],
   providers: [SystemConfigsService],
 })
