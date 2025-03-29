@@ -186,6 +186,16 @@ export class AuthService {
     };
   }
 
+  private checkSystemHasAdmin(): Promise<boolean> {
+    return this.usersService
+      .count({
+        where: {
+          role: UserRole.ADMIN,
+        },
+      })
+      .then((count) => count > 0);
+  }
+
   /**
    * Initializes the application by creating an admin user if the database is empty.
    *
@@ -197,13 +207,7 @@ export class AuthService {
   ): Promise<{ email: string; password: string }> {
     const { email } = dto;
 
-    const userCount = await this.usersService.count({
-      where: {
-        role: UserRole.ADMIN,
-      },
-    });
-
-    if (userCount > 0) {
+    if (await this.checkSystemHasAdmin()) {
       throw new ForbiddenException('The application is already initialized.');
     }
 
